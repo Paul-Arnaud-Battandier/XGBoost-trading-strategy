@@ -49,4 +49,4 @@ Backtesting: Use XGBOOST/main.py within the Lean CLI or QuantConnect IDE to run 
 This project is for educational purposes only. Trading involves significant risk. Past performance is not indicative of future results. Never trade money you cannot afford to lose.
 
 👨‍💻 Author
-Paul-Arnaud Battandier - Market Finance & Machine Learning Enthusiast
+Paul Arnaud-Battandier - Market Finance & Machine Learning Enthusiast
