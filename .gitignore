@@ -1,0 +1,20 @@
+# Données volumineuses
+data/
+*.zip
+*.csv
+*.json
+!lean.json
+!config.json
+
+# Backtests (on ne garde que le code source, pas les résultats de chaque run)
+XGBOOST/backtests/
+objectstore/
+storage/
+
+# Python & Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Modèles volumineux (si le .bst fait plus de 50Mo)
+# *.bst
