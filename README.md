@@ -19,11 +19,17 @@ Data Normalization: All features and targets are scaled using MinMaxScaler for o
 Plaintext
 Machine Learning/
 ├── XGBOOST/                # Core Algorithm folder
+
 │   ├── main.py             # QuantConnect deployment script
+
 │   ├── research.ipynb      # Training, R&D, and Visualization
+
 │   └── model/              # Serialized binary models (.bst)
+
 ├── data/                   # Backtesting data (locally stored / .gitignored)
+
 ├── lean.json               # Lean Engine configuration
+
 └── README.md               # Project Documentation
 📊 Model Performance & Visualization
 The model's accuracy is measured using RMSE (Root Mean Square Error) on a 10% out-of-sample test set.
