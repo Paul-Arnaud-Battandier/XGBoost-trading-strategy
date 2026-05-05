@@ -1,58 +1,43 @@
-📈 XGBoost Trading Strategy - NVIDIA (NVDA) Price Prediction
-This project implements an algorithmic trading strategy based on Machine Learning, utilizing XGBoost to predict short-term price movements for NVIDIA (NVDA). The model is developed locally (Jupyter) and designed for deployment on the QuantConnect (Lean Engine) platform.
+# NVDA Price Prediction - XGBoost Trading Strategy
 
-🚀 Project Overview
-The core of this strategy is a Gradient Boosting Regressor that forecasts the next closing price based on a combination of raw market data, technical indicators, and cyclical time-based features.
+This repository implements an algorithmic trading strategy for NVIDIA (NVDA) using Gradient Boosting Machine Learning. The project focuses on short term price forecasting and is designed for seamless deployment on the QuantConnect Lean Engine platform.
 
-🛠️ Feature Engineering
-To capture market dynamics and intraday seasonality, the model utilizes:
+## Project Overview
 
-OHLCV Data: Open, High, Low, Volume.
+The core of this strategy utilizes an XGBoost Regressor to forecast the next closing price. The model integrates raw market data with technical indicators and cyclical time features to capture complex intraday dynamics.
 
-Technical Indicators: RSI, PPO, MACD (with Signal line), OBV, and ROC.
+## Repository Structure
 
-Time Cyclical Encoding: Hour, Minute, and Day features are transformed using Sine/Cosine encoding (e.g., Hour_sin, Hour_cos) to help the model understand the circular nature of time.
+| Directory / File | Technical Purpose |
+| :--- | :--- |
+| `XGBOOST/main.py` | Deployment script for the QuantConnect Lean Engine |
+| `XGBOOST/research.ipynb` | Core research environment for training and visualization |
+| `XGBOOST/model/` | Serialized binary models in .bst format for native execution |
+| `PPE_Presentation.ipynb` | Comprehensive presentation of project methodology and results |
+| `XGBOOST.ipynb` | Alternative training and feature engineering notebook |
+| `requirements.txt` | Configuration of the Python environment and dependencies |
 
-Data Normalization: All features and targets are scaled using MinMaxScaler for optimal boosting performance.
+## Quantitative Features
 
-🏗️ Repository Structure
-Plaintext
-Machine Learning/
-├── XGBOOST/                # Core Algorithm folder
+*   **Technical Indicators**: Integration of RSI, PPO, MACD, OBV, and Rate of Change to define market momentum.
+*   **Cyclical Encoding**: Transformation of time features using Sine and Cosine functions to preserve the circular nature of hours and days.
+*   **Feature Scaling**: Application of MinMaxScaler to ensure optimal performance for the gradient boosting regressor.
+*   **Model Serialization**: Export of models as binary .bst files to ensure native compatibility with Lean Engine environments.
 
-│   ├── main.py             # QuantConnect deployment script
+## Technical Stack
 
-│   ├── research.ipynb      # Training, R&D, and Visualization
+*   **Language**: Python 3.11
+*   **Machine Learning**: XGBoost, Scikit-Learn
+*   **Data Analysis**: Pandas, NumPy, yfinance
+*   **Execution Platform**: QuantConnect Lean Engine
+*   **Visualization**: Matplotlib
 
-│   └── model/              # Serialized binary models (.bst)
+## Implementation Workflow
 
-├── data/                   # Backtesting data (locally stored / .gitignored)
+1.  **Research**: Data acquisition and feature engineering are conducted within the research notebooks.
+2.  **Training**: The XGBoost model is trained on historical OHLCV data and validated using an out of sample test set.
+3.  **Deployment**: The serialized model is loaded into the QuantConnect environment for backtesting and live execution.
 
-├── lean.json               # Lean Engine configuration
+## Disclaimer
 
-└── README.md               # Project Documentation
-📊 Model Performance & Visualization
-The model's accuracy is measured using RMSE (Root Mean Square Error) on a 10% out-of-sample test set.
-
-Objective: Regression on normalized closing prices.
-
-Serialization: The model is saved as a binary .bst file to ensure native compatibility with the QuantConnect Python environment.
-
-⚙️ Installation & Usage
-Prerequisites
-Ensure you have the following libraries installed:
-
-Bash
-pip install numpy pandas xgboost scikit-learn matplotlib yfinance
-How to Run
-Training: Run the XGBOOST/research.ipynb notebook to fetch data via yfinance, engineer features, and train the model.
-
-Saving: The script automatically exports the model as xgboost.bst.
-
-Backtesting: Use XGBOOST/main.py within the Lean CLI or QuantConnect IDE to run the strategy against historical data.
-
-⚠️ Disclaimer
-This project is for educational purposes only. Trading involves significant risk. Past performance is not indicative of future results. Never trade money you cannot afford to lose.
-
-👨‍💻 Author
-Paul Arnaud-Battandier - Market Finance & Machine Learning Enthusiast
+This repository is for educational purposes only. Trading involves significant risk and past performance is not indicative of future results. It is essential to conduct thorough risk assessment before deploying capital in financial markets.
